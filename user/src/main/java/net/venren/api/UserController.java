@@ -1,6 +1,7 @@
 package net.venren.api;
 
 import net.venren.model.User;
+import net.venren.resources.PageResource;
 import net.venren.service.UserService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,8 +32,9 @@ public class UserController {
     }
 
     @GetMapping
-    public  Page<User> listUsers(Pageable pageable){
-        return userService.listUsers(pageable);
+    public  PageResource<User> listUsers(Pageable pageable){
+        Page<User> users = userService.listUsers(pageable);
+        return new PageResource<User>(users,"page","size");
     }
 
 

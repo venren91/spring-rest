@@ -25,7 +25,7 @@ public class User extends ResourceSupport implements Serializable {
     @NotNull
     private String name;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     @Pattern(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
     @NotNull
     private String email;
