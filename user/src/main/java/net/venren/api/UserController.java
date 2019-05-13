@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.sql.SQLIntegrityConstraintViolationException;
+
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @RestController
@@ -56,10 +58,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{userId}")
-    public ResponseEntity deleteUser(@PathVariable final String userId){
+    public ResponseEntity deleteUser(@PathVariable final String userId) {
         userService.deleteUser(userId);
         return new ResponseEntity(HttpStatus.OK);
     }
-
-
 }

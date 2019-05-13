@@ -61,6 +61,34 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.4</version>
+                <executions>
+                    <execution>
+                        <id>create-db</id>
+                        <goals>
+                            <goal>migrate</goal>
+                        </goals>
+                        <configuration>
+                            <url>jdbc:mysql://127.0.0.1:3306/ecommerce</url>
+                            <user>root</user>
+                            <password>admin</password>
+                            <placeholders>
+                                <DATABASE.NAME>ecommerce</DATABASE.NAME>
+                            </placeholders>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysql.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
 

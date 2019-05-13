@@ -35,7 +35,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <version>2.0.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -65,6 +65,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+
 
 
 </project>
